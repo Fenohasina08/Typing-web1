@@ -1,56 +1,34 @@
-const games = [
-    { name: "Mario", image: "../images/clavier_euro.png", level: "easy" },
-    { name: "Diaspora", image: "", level: "easy"},
-    { name: "Tetris", image: "https://via.placeholder.com/200x150", level: "easy" },
-    { name: "Tetris", image: "https://via.placeholder.com/200x150", level: "easy" },
-    { name: "Tetris", image: "https://via.placeholder.com/200x150", level: "easy" },
-    { name: "Zelda", image: "https://via.placeholder.com/200x150", level: "medium" },
-    { name: "Zelda", image: "https://via.placeholder.com/200x150", level: "medium" },
-    { name: "Zelda", image: "https://via.placeholder.com/200x150", level: "medium" },
-    { name: "Zelda", image: "https://via.placeholder.com/200x150", level: "medium" },
-    { name: "Zelda", image: "https://via.placeholder.com/200x150", level: "medium" },
-    { name: "Dark Souls", image: "https://via.placeholder.com/200x150", level: "hard" },
-    { name: "Elden Ring", image: "https://via.placeholder.com/200x150", level: "hard" },
-    { name: "Elden Ring", image: "https://via.placeholder.com/200x150", level: "hard" },
-    { name: "Elden Ring", image: "https://via.placeholder.com/200x150", level: "hard" },
-    { name: "Elden Ring", image: "https://via.placeholder.com/200x150", level: "hard" },
-   
-    
-    
-  ];
+const notesContainers = document.getElementsByClassName('notes');
 
-  const levels = {
-    easy: document.getElementById("easy-levels-grid"),
-    medium: document.getElementById("medium-levels-grid"),
-    hard: document.getElementById("hard-levels-grid"),
-    all: document.getElementById("all-levels-grid")
-  };
+for (let n = 0; n < notesContainers.length; n++) {
+    const stars = notesContainers[n].getElementsByTagName('span');
 
-  function createGameCard(game) {
-    const card = document.createElement("div");
-    card.className = "game-card bg-white";
+    for (let i = 0; i < stars.length; i++) {
+        stars[i].addEventListener('click', function () {
+            updateStars(i, stars);
+        });
+    }
+}
 
-    const imgContainer = document.createElement("div");
-    imgContainer.className = "image-container";
+function updateStars(index, stars) {
+    for (let i = 0; i < stars.length; i++) {
+        if (i <= index) {
+            stars[i].textContent = '★';
+        } else {
+            stars[i].textContent = '☆';
+        }
+    }
+}
 
-    const img = document.createElement("img");
-    img.src = game.image;
-    img.alt = game.name;
+// Pour les cœurs
+const heartIcons = document.getElementsByClassName('favoris');
 
-    imgContainer.appendChild(img);
-
-    const name = document.createElement("div");
-    name.className = "game-name";
-    name.textContent = game.name;
-
-    card.appendChild(imgContainer);
-    card.appendChild(name);
-
-    return card;
-  }
-
-  games.forEach(game => {
-    const card = createGameCard(game);
-    levels[game.level].appendChild(card);
-    levels.all.appendChild(card.cloneNode(true));
-  });
+for (let i = 0; i < heartIcons.length; i++) {
+    heartIcons[i].addEventListener('click', function () {
+        if (heartIcons[i].textContent === '🤍') {
+            heartIcons[i].textContent = '❤️';
+        } else {
+            heartIcons[i].textContent = '🤍';
+        }
+    });
+}
