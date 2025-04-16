@@ -1,0 +1,11 @@
+
+:root {
+    --primary-color: rgba(128, 128, 128, 0.54) ;
+    --secondary-color: ;
+    --text-color: ;
+}
+
+body {
+    background-color: var(--primary-color);
+}
+ 
