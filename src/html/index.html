@@ -7,7 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/output.css">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/colors.css">
+   
 </head>
 
 <body class="flex flex-col w-full h-full">
@@ -57,9 +57,9 @@
           </ul>
         </li>
         <li>
-          <a href="./settings.html" class="flex items-center hover:underline">
-            <i class='bx bx-cog text-xl mr-2' aria-hidden="true"></i>Settings
-          </a>
+          <button class="open-settings flex items-center hover:underline">
+            <i class='bx bx-cog text-xl mr-2'></i>Settings
+          </button>
         </li>
       </ul>
     </nav>
@@ -85,18 +85,27 @@
           <a href="./stages.html" class="block px-4 py-2 hover:bg-blue-50 rounded-lg transition-all" tabindex="0">Stages</a>
         </div>
       </div>
-      <a href="./settings.html" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all" tabindex="0">
-        <i class='bx bx-cog text-xl mr-2 text-blue-600' aria-hidden="true"></i>Settings
-      </a>
+      <button class="open-settings flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all">
+        <i class='bx bx-cog text-xl mr-2 text-blue-600'></i>Settings
+      </button>
+    </div>
+    <div id="settings-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-[100]">
+      <div class="settings-content bg-white p-6 rounded-lg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md">
+        <button class="close-settings absolute top-4 right-4 text-gray-500">
+          <i class='bx bx-x text-2xl'></i>
+        </button>
+        <h2 class="text-2xl font-bold mb-4">Paramètres</h2>
+        <!-- Contenu des paramètres ici -->
+      </div>
     </div>
   </header>
 
-    <div id="bienvenu" class="w-screen h-screen flex  md:flex-row p-8 bg-gradient-to-r from-gray-900 to-gray-800 text-black">
+    <div id="bienvenu" class="w-screen h-screen flex  md:flex-row p-8  text-black">
   <!-- Left section -->
       <div id="bienvenu_left" class="flex w-full md:w-1/2 h-full items-center justify-center flex-col space-y-6 text-[2rem] ">
         <h4 class="text-2xl text-white font-semibold">Typing Online</h4>
         <h2 class="text-5xl italic">Discover the Typing World</h2>
-        <p class="text-lg text-gray-300 text-center max-w-md leading-relaxed">
+        <p class="text-black text-center max-w-md leading-relaxed">
           This is an English-language website designed to help you become faster and more accurate at typing on a computer. Our goal is to reduce your typing errors and increase your typing speed.
         </p>
         <button class="border-2 border-amber-300 px-6 py-3 rounded-full bg-amber-600 hover:bg-amber-500 transition-all duration-300">
@@ -111,62 +120,143 @@
     </div>
 
 
-    <div id="historic" class="w-[100vw] h-[90vh] bg-blue-600 flex flex-col">
-      <div id="historic_up" class="w-[100vw] h-[20%] bg-amber-700 flex">
+    <div id="historic" class="w-[100vw] h-[90vh]  flex flex-col">
+      <div id="historic_up" class="w-[100vw] h-[20%] flex">
         <div class="flex justify-center items-center w-full h-full gap-6">
-          <div class="w-20 h-20 bg-blue-500 spin-slow rounded-md"></div>
-          <div class="w-20 h-20 bg-green-500 spin-slow rounded-md"></div>
-          <div class="w-20 h-20 bg-red-500 spin-slow rounded-md"></div>
-          <div class="w-20 h-20 bg-yellow-500 spin-slow rounded-md"></div>
-          <div class="w-20 h-20 bg-purple-500 spin-slow rounded-md"></div>
+          <div class="w-20 h-20 bg-blue-500 rounded-md float-card delay-0"></div>
+          <div class="w-20 h-20 bg-green-500 rounded-md float-card delay-1"></div>
+          <div class="w-20 h-20 bg-red-500 rounded-md float-card delay-2"></div>
+          <div class="w-20 h-20 bg-yellow-500 rounded-md float-card delay-3"></div>
+          <div class="w-20 h-20 bg-purple-500 rounded-md float-card delay-4"></div>
         </div>
       </div>
+      
 
-      <div id="historic_down"class="w-[100vw] h-[80%] bg-red-300 flex flex-row">
-        <div class=" bg-amber-300 w-1/2 h-full  items-center text-center justify-center flex flex-col">
-          <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque obcaecati aliquid, libero maiores temporibus facilis repudiandae sed. Minima, quia quod? Ab consectetur laboriosam harum dicta ipsam ipsa repudiandae et porro!
-            Ex enim beatae unde! Consectetur suscipit <br>
-            Velit quos et, dolore ipsum recusandae dignissimos delectus ullam  
-           
-          </p> 
+      <div id="historic_down"class="w-[100vw] h-[80%]  flex flex-row">
+        <div class="  w-1/2 h-full  text-center justify-center flex flex-col">
+           <img src="data:image/jpeg;base64,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
+           AhCEAIQhACEIQAhCEAIQhACEIQAhCEAIQhAC
+           EIQAhCEAIQhACEIQAhCEAIQhACEIQAhCEAIQhACEIQH/2Q==" alt="image of someone who is doing typing">
            
         </div>
-        <div class="bg-green-400 w-1/2 h-full items-center text-center justify-center flex flex-col">
-            <p>Created by:</p>
-            <div class="fagilah">
-              <img src="" alt="images de fagilah ">
-              <p>Fagilah ANDRIANJAKA</p>
-            </div>
-            <div class="herimamy">
-              <img src="" alt="images de herimamy">
-              <p>Fenohasina RA-FANOMEZANA</p>
-            </div>
-            <div class="description">
-              <p> We are first-year students at HEI (Haute École d'Informatique), in the common core program. 
-                We created this website to help ourselves and other students like us—or even people who already have
-                 a job and want to improve their soft skills. 
-                It's also great for anyone who is simply curious and wants to find out how good they are at typing.
-              </p>
-            </div>
+        <div class="w-1/2 h-full items-center text-center justify-center flex flex-col">
+          <p class="mb-4 font-semibold">Created by:</p>
+        
+          <div class="flex flex-col items-center mb-4">
+            <p class="mt-2 text-xs font-medium">Fagilah ANDRIANJAKA</p>
+          </div>
+          <div class="flex flex-col items-center mb-4">
+            <p class="mt-2 text-xs font-medium">Fenohasina RA-FANOMEZANA</p>
+          </div>
+          <div class="description mt-4 text-sm text-gray-700 max-w-md px-4">
+            <p>
+              We are first-year students at HEI (Haute École d'Informatique), in the common core program.
+              We created this website to help ourselves and other students like us—or even people who already have
+              a job and want to improve their soft skills. It's also great for anyone who is simply curious and wants to find out how good they are at typing.
+            </p>
+          </div>
         </div>
+        
+        
+            
     </div>
   </div>
-  <div class="bg-amber-950 w-full h-[50vh] flex flex-row">
-      <div class="bg-blue-400 w-1/2 h-full items-center justify-center flex flex-col text-1xl text-white  gap-8">
+  <div class="w-full h-[50vh] flex flex-row">
+      <div class="w-1/2 h-full items-center justify-center flex flex-col text-1xl text-black  gap-8">
           <h3 class="text-3xl">How does it work?</h3>
           <p> You can click Play in the navigation menu and choose between typing<br>
              full books or completing challenges by selecting different stages.</p>
       </div>
-      <div class="bg- w-1/2 h-full text-amber-50 items-center justify-center flex flex-col text-1xl text-white  gap-8">
+      <div class="h-full text-amber-50 items-center justify-center flex flex-col text-1xl text-black  gap-8">
           <h3 class="text-3xl">Do I need an account?</h3>
           <p> No, you don’t need to create an account to play our games.<br>
               However, having an account allows you to save your progress and pick up <br>
               right where you left off.</p>
       </div>
   </div>
-  <footer class="bg-fuchsia-700 w-[100vw] h-[50vh]">
+  <footer class="bg-black text-red-500 mt-auto w-full py-6 flex flex-col">
+    <!-- Back to top button + sections -->
+    <div id="footer_up" class="h-[80%] flex flex-row">
+      <button id="back-to-top"
+              class="fixed bottom-4 right-4 p-3 bg-blue-500 rounded-full shadow-lg hover:bg-blue-600 transition-all duration-300 opacity-0">
+        <i class='bx bx-chevron-up text-xl text-white'></i>
+      </button>
+  
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <!-- Colonne 1 - Newsletter -->
+          <div class="space-y-4 px-4">
+            <h3 class="font-bold text-2xl text-red-400">FastTap</h3>
+            <form class="space-y-3">
+              <p class="text-sm font-medium">Wanna build an app website with us??</p>
+              <div class="flex gap-2">
+                <input type="email" placeholder="Your email"
+                       class="flex-1 px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 text-white text-sm focus:outline-none focus:border-red-500">
+                <button type="submit"
+                        class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors text-sm">
+                  Join
+                </button>
+              </div>
+            </form>
+          </div>
+  
+          <!-- Colonne 2 - Liens rapides -->
+          <div class="space-y-4 px-4">
+            <h4 class="font-semibold text-red-400">Navigation</h4>
+            <ul class="space-y-2">
+              <li><a href="./index.html" class="hover:text-red-300 transition-colors flex items-center gap-1">
+                  <i class='bx bx-chevron-right text-sm'></i>Home
+                </a></li>
+              <li><a href="./leaderboard.html" class="hover:text-red-300 transition-colors flex items-center gap-1">
+                  <i class='bx bx-chevron-right text-sm'></i>LeaderBoard
+                </a></li>
+              <li><a href="./profils.html" class="hover:text-red-300 transition-colors flex items-center gap-1">
+                  <i class='bx bx-chevron-right text-sm'></i>Profils
+                </a></li>
+              <li><a href="./settings.html" class="hover:text-red-300 transition-colors flex items-center gap-1">
+                  <i class='bx bx-chevron-right text-sm'></i>Settings
+                </a></li>
+            </ul>
+          </div>
+  
+          <!-- Colonne 3 - Contacts -->
+          <div class="space-y-4 px-4">
+            <h4 class="font-semibold text-red-400">Connect with us</h4>
+            <div class="space-y-3">
+              <div class="flex flex-col gap-1">
+                <p class="text-sm font-medium">Emails :</p>
+                <a href="mailto:fazilah.andrianjaka@gmail.com" class="text-xs hover:text-red-300">fazilah.andrianjaka@gmail.com</a>
+                <a href="mailto:fenohasinaherimamy@gmail.com" class="text-xs hover:text-red-300">fenohasinaherimamy@gmail.com</a>
+              </div>
+              <div class="flex gap-4 pt-2">
+                <a href="https://www.facebook.com/fazi.lah.5661"
+                   class="flex items-center gap-2 p-2 bg-gray-800 rounded-full hover:bg-red-600 transition-colors">
+                  <i class="bx bxl-facebook-circle text-xl text-white"></i>
+                  <span class="text-white text-sm font-medium">Fagilah Andrianjaka</span>
+                </a>
+              
+                <a href="https://www.facebook.com/profile.php?viewas=100000686899395&id=100057313188202"
+                   class="flex items-center gap-2 p-2 bg-gray-800 rounded-full hover:bg-red-600 transition-colors">
+                  <i class="bx bxl-facebook-circle text-xl text-white"></i>
+                  <span class="text-white text-sm font-medium">feno hasi-na</span>
+                </a>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Bas du footer -->
+    <div id="footer_down"
+    class="border-t border-gray-800 pt-6 text-center text-sm text-gray-400 flex h-[20%] items-center justify-center">
+ <p>© 2025 FastTap. All rights reserved.</p>
+</div>
 
   </footer>
+  
+  
 </body>
 <script src="../js/index.js"></script>
 </html>
