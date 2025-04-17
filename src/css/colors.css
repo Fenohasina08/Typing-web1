@@ -1,11 +1,9 @@
 
 :root {
-    --primary-color: rgba(128, 128, 128, 0.54) ;
-    --secondary-color: ;
-    --text-color: ;
+     --primary-color: white ;
+     --secondary-color: blue;
+     --text-color:black;
+     --button-color:orange
 }
 
-body {
-    background-color: var(--primary-color);
-}
  

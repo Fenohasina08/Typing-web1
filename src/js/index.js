@@ -1,6 +1,7 @@
 // menu.js
 
 document.addEventListener('DOMContentLoaded', () => {
+  
     // Desktop dropdown
     const playButton = document.getElementById('play-button');
     const playDropdown = document.getElementById('play-dropdown');
@@ -30,5 +31,23 @@ document.addEventListener('DOMContentLoaded', () => {
         mobilePlayDropdown.classList.add('hidden');
       }
     });
+    const backToTop = document.getElementById('back-to-top');
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTop.classList.remove('opacity-0');
+      backToTop.classList.add('opacity-100');
+    } else {
+      backToTop.classList.remove('opacity-100');
+      backToTop.classList.add('opacity-0');
+    }
+  });
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
   });
   
