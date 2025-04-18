@@ -10,84 +10,84 @@
   <link rel="stylesheet" href="../css/colors.css">
 </head>
     <body>
-        <header class="w-full h-[5rem] bg-blue-500 flex justify-between items-center px-6 sticky top-0 z-50">
+      <header class="w-full h-[5rem] bg-blue-500 flex justify-between items-center px-6 sticky top-0 z-50">
   
-            <div class="flex-1 text-white font-bold text-xl">
-              FastTap
-            </div>
-        
-          
-            <input type="checkbox" id="burger-toggle" class="hidden peer" aria-hidden="true" />
-            <label for="burger-toggle" class="lg:hidden text-white text-3xl cursor-pointer z-50" aria-label="Ouvrir/Cacher le menu de navigation">
-            <i class='bx bx-menu' aria-hidden="true"></i>
-            </label>
-        
-          <!-- Menu desktop -->
-            <nav role="navigation" aria-label="Navigation principale" class="hidden lg:flex flex-[2] justify-end">
-              <ul class="flex gap-8 text-white font-bold text-lg items-center">
+        <div class="flex-1 text-white font-bold text-xl">
+          FastTap
+        </div>
+    
+        <input type="checkbox" id="burger-toggle" class="hidden peer" aria-hidden="true" />
+        <label for="burger-toggle" class="lg:hidden text-white text-3xl cursor-pointer z-50" aria-label="Ouvrir/Cacher le menu de navigation">
+        <i class='bx bx-menu' aria-hidden="true"></i>
+        </label>
+    
+      <!-- Menu desktop -->
+        <nav role="navigation" aria-label="Navigation principale" class="hidden lg:flex flex-[2] justify-end">
+          <ul class="flex gap-8 text-white font-bold text-lg items-center flex flex-row">
+            <li>
+              <a href="./index.html" class="flex items-center hover:underline" aria-current="page">
+                <i class='bx bx-home-alt text-xl mr-2' aria-hidden="true"></i>Home
+              </a>
+            </li>
+            <li>
+              <a href="./profils.html" class="flex items-center hover:underline">
+                <i class='bx bx-user-circle text-xl mr-2' aria-hidden="true"></i>Profils
+              </a>
+            </li>
+          <!-- Dropdown for Play -->
+            <li class="relative">
+              <button id="play-button" class="flex items-center hover:underline focus:outline-none">
+                <i class='bx bx-play-circle text-xl mr-2' aria-hidden="true"></i>Play
+              </button>
+              <ul id="play-dropdown" class="absolute hidden bg-white text-gray-800 mt-2 rounded shadow-lg w-48 z-50">
                 <li>
-                  <a href="./index.html" class="flex items-center hover:underline" aria-current="page">
-                    <i class='bx bx-home-alt text-xl mr-2' aria-hidden="true"></i>Home
-                  </a>
+                  <a href="./story.html" class="block px-4 py-2 hover:bg-gray-100">Story</a>
                 </li>
                 <li>
-                  <a href="./leaderboard.html" class="flex items-center hover:underline">
-                    <i class='bx bx-bar-chart-alt text-xl mr-2' aria-hidden="true"></i>LeaderBoard
-                  </a>
-                </li>
-                <li>
-                  <a href="./profils.html" class="flex items-center hover:underline">
-                    <i class='bx bx-user-circle text-xl mr-2' aria-hidden="true"></i>Profils
-                  </a>
-                </li>
-              <!-- Dropdown for Play -->
-                <li class="relative">
-                  <button id="play-button" class="flex items-center hover:underline focus:outline-none">
-                    <i class='bx bx-play-circle text-xl mr-2' aria-hidden="true"></i>Play
-                  </button>
-                  <ul id="play-dropdown" class="absolute hidden bg-white text-gray-800 mt-2 rounded shadow-lg w-48 z-50">
-                    <li>
-                      <a href="./story.html" class="block px-4 py-2 hover:bg-gray-100">Story</a>
-                    </li>
-                    <li>
-                      <a href="./stages.html" class="block px-4 py-2 hover:bg-gray-100">Stages</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="./settings.html" class="flex items-center hover:underline">
-                    <i class='bx bx-cog text-xl mr-2' aria-hidden="true"></i>Settings
-                  </a>
+                  <a href="./stages.html" class="block px-4 py-2 hover:bg-gray-100">Stages</a>
                 </li>
               </ul>
-            </nav>
-        
-          <!-- Menu mobile -->
-            <div id="mobile-menu" class="hidden peer-checked:flex lg:hidden flex-col gap-2 bg-white shadow-lg border border-gray-200 px-4 py-4 font-semibold text-gray-800 absolute top-[5rem] left-0 w-full z-40">
-              <a href="./index.html" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all" tabindex="0">
-                <i class='bx bx-home-alt text-xl mr-2 text-blue-600' aria-hidden="true"></i>Home
-              </a>
-              <a href="./leaderboard.html" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all" tabindex="0">
-                <i class='bx bx-bar-chart-alt text-xl mr-2 text-blue-600' aria-hidden="true"></i>LeaderBoard
-              </a>
-              <a href="./profils.html" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all" tabindex="0">
-                <i class='bx bx-user-circle text-xl mr-2 text-blue-600' aria-hidden="true"></i>Profils
-              </a>
-            <!-- Dropdown for Play in mobile -->
-              <div class="flex flex-col">
-                <button id="mobile-play-button" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all focus:outline-none">
-                  <i class='bx bx-play-circle text-xl mr-2 text-blue-600' aria-hidden="true"></i>Play
-                </button>
-                <div id="mobile-play-dropdown" class="ml-6 hidden">
-                  <a href="./story.html" class="block px-4 py-2 hover:bg-blue-50 rounded-lg transition-all" tabindex="0">Story</a>
-                  <a href="./stages.html" class="block px-4 py-2 hover:bg-blue-50 rounded-lg transition-all" tabindex="0">Stages</a>
-                </div>
-              </div>
-              <a href="./settings.html" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all" tabindex="0">
-                <i class='bx bx-cog text-xl mr-2 text-blue-600' aria-hidden="true"></i>Settings
-              </a>
+            </li>
+            <li>
+                <a href="./settings.html" class="flex items-center hover:underline">
+                  <i class='bx bx-user-circle text-xl mr-2' aria-hidden="true"></i>Settings
+                </a>
+              </li>
+          </ul>
+        </nav>
+    
+      <!-- Menu mobile -->
+        <div id="mobile-menu" class="hidden peer-checked:flex lg:hidden flex-col gap-2 bg-white shadow-lg border border-gray-200 px-4 py-4 font-semibold text-gray-800 absolute top-[5rem] left-0 w-full z-40">
+          <a href="./index.html" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all" tabindex="0">
+            <i class='bx bx-home-alt text-xl mr-2 text-blue-600' aria-hidden="true"></i>Home
+          </a>
+          <a href="./profils.html" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all" tabindex="0">
+            <i class='bx bx-user-circle text-xl mr-2 text-blue-600' aria-hidden="true"></i>Profils
+          </a>
+        <!-- Dropdown for Play in mobile -->
+          <div class="flex flex-col">
+            <button id="mobile-play-button" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all focus:outline-none">
+              <i class='bx bx-play-circle text-xl mr-2 text-blue-600' aria-hidden="true"></i>Play
+            </button>
+            <div id="mobile-play-dropdown" class="ml-6 hidden">
+              <a href="./story.html" class="block px-4 py-2 hover:bg-blue-50 rounded-lg transition-all" tabindex="0">Story</a>
+              <a href="./stages.html" class="block px-4 py-2 hover:bg-blue-50 rounded-lg transition-all" tabindex="0">Stages</a>
             </div>
-          </header>
+          </div>
+          <button class="open-settings flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all">
+            <i class='bx bx-cog text-xl mr-2 text-blue-600'></i>Settings
+          </button>
+        </div>
+        <div id="settings-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-[100]">
+          <div class="settings-content bg-white p-6 rounded-lg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md">
+            <button class="close-settings absolute top-4 right-4 text-gray-500">
+              <i class='bx bx-x text-2xl'></i>
+            </button>
+            <h2 class="text-2xl font-bold mb-4">Paramètres</h2>
+            <!-- Contenu des paramètres ici -->
+          </div>
+        </div>
+      </header>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Thème -->
             <div class="bg-white shadow-lg rounded-2xl p-5 flex items-center justify-between">
@@ -128,4 +128,5 @@
           
     </body>
     <script src="../js/setting.js"></script>
+    <script src="../js/index.js"></script>
 </html>
