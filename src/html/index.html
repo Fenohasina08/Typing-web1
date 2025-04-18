@@ -18,7 +18,6 @@
       FastTap
     </div>
 
-  
     <input type="checkbox" id="burger-toggle" class="hidden peer" aria-hidden="true" />
     <label for="burger-toggle" class="lg:hidden text-white text-3xl cursor-pointer z-50" aria-label="Ouvrir/Cacher le menu de navigation">
     <i class='bx bx-menu' aria-hidden="true"></i>
@@ -26,15 +25,10 @@
 
   <!-- Menu desktop -->
     <nav role="navigation" aria-label="Navigation principale" class="hidden lg:flex flex-[2] justify-end">
-      <ul class="flex gap-8 text-white font-bold text-lg items-center">
+      <ul class="flex gap-8 text-white font-bold text-lg items-center flex flex-row">
         <li>
           <a href="./index.html" class="flex items-center hover:underline" aria-current="page">
             <i class='bx bx-home-alt text-xl mr-2' aria-hidden="true"></i>Home
-          </a>
-        </li>
-        <li>
-          <a href="./leaderboard.html" class="flex items-center hover:underline">
-            <i class='bx bx-bar-chart-alt text-xl mr-2' aria-hidden="true"></i>LeaderBoard
           </a>
         </li>
         <li>
@@ -57,10 +51,10 @@
           </ul>
         </li>
         <li>
-          <button class="open-settings flex items-center hover:underline">
-            <i class='bx bx-cog text-xl mr-2'></i>Settings
-          </button>
-        </li>
+            <a href="./settings.html" class="flex items-center hover:underline">
+              <i class='bx bx-user-circle text-xl mr-2' aria-hidden="true"></i>Settings
+            </a>
+          </li>
       </ul>
     </nav>
 
@@ -68,9 +62,6 @@
     <div id="mobile-menu" class="hidden peer-checked:flex lg:hidden flex-col gap-2 bg-white shadow-lg border border-gray-200 px-4 py-4 font-semibold text-gray-800 absolute top-[5rem] left-0 w-full z-40">
       <a href="./index.html" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all" tabindex="0">
         <i class='bx bx-home-alt text-xl mr-2 text-blue-600' aria-hidden="true"></i>Home
-      </a>
-      <a href="./leaderboard.html" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all" tabindex="0">
-        <i class='bx bx-bar-chart-alt text-xl mr-2 text-blue-600' aria-hidden="true"></i>LeaderBoard
       </a>
       <a href="./profils.html" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all" tabindex="0">
         <i class='bx bx-user-circle text-xl mr-2 text-blue-600' aria-hidden="true"></i>Profils
@@ -99,17 +90,16 @@
       </div>
     </div>
   </header>
-
     <div id="bienvenu" class="w-screen h-screen flex  md:flex-row p-8  text-black">
   <!-- Left section -->
-      <div id="bienvenu_left" class="flex w-full md:w-1/2 h-full items-center justify-center flex-col space-y-6 text-[2rem] ">
+      <div id="bienvenu_left" class="flex w-full md:w-1/2 h-full items-center justify-center flex-col space-y-6 ">
         <h4 class="text-2xl text-white font-semibold">Typing Online</h4>
-        <h2 class="text-5xl italic">Discover the Typing World</h2>
-        <p class="text-black text-center max-w-md leading-relaxed">
+        <h2 class="text-3xl italic">Discover the Typing World</h2>
+        <p class="text-black text-center max-w-md leading-relaxed text-2xl">
           This is an English-language website designed to help you become faster and more accurate at typing on a computer. Our goal is to reduce your typing errors and increase your typing speed.
         </p>
-        <button class="border-2 border-amber-300 px-6 py-3 rounded-full bg-amber-600 hover:bg-amber-500 transition-all duration-300">
-          <a href="./story.html">Let's go </a>
+        <button class="border-2 border-amber-300 px-6 py-3 rounded-full bg-amber-600 hover:bg-white transition-all duration-300">
+          <a href="./story.html" class="text-2xl">Let's go </a>
         </button>
       </div>
 
@@ -142,13 +132,24 @@
         <div class="w-1/2 h-full items-center text-center justify-center flex flex-col">
           <p class="mb-4 font-semibold">Created by:</p>
         
-          <div class="flex flex-col items-center mb-4">
-            <p class="mt-2 text-xs font-medium">Fagilah ANDRIANJAKA</p>
+          <div class="flex flex-row items-center mb-4">
+            <div id="bulle_photo" class="w-[25%] h-[85%] border-4 border-amber-500 rounded-[150rem]">
+              <img src="/images/fazilah.jpg" alt="" class="">
+            </div>
+            <div id="name_photo">
+              <p class="mt-2 text-xs font-medium">Fagilah ANDRIANJAKA</p>
+            </div>
+           
           </div>
-          <div class="flex flex-col items-center mb-4">
-            <p class="mt-2 text-xs font-medium">Fenohasina RA-FANOMEZANA</p>
+          <div class="flex flex-row items-center mb-4">
+            <div id="bulle_photo" class="w-[25%] h-[85%] border-4 border-amber-500 rounded-[150rem]">
+              <img src="/images/fazilah.jpg" alt="" class="">
+            </div>
+            <div id="name_photo">
+              <p class="mt-2 text-xs font-medium">Fenohasina RA-FANOMEZANA </p>
+            </div>
           </div>
-          <div class="description mt-4 text-sm text-gray-700 max-w-md px-4">
+          <div class="description mt-4 text-1 text-gray-700 max-w-md px-4">
             <p>
               We are first-year students at HEI (Haute École d'Informatique), in the common core program.
               We created this website to help ourselves and other students like us—or even people who already have
@@ -167,7 +168,7 @@
           <p> You can click Play in the navigation menu and choose between typing<br>
              full books or completing challenges by selecting different stages.</p>
       </div>
-      <div class="h-full text-amber-50 items-center justify-center flex flex-col text-1xl text-black  gap-8">
+      <div class="h-full text-amber-50  justify-center flex flex-col text-1xl text-black  gap-8">
           <h3 class="text-3xl">Do I need an account?</h3>
           <p> No, you don’t need to create an account to play our games.<br>
               However, having an account allows you to save your progress and pick up <br>
@@ -207,12 +208,21 @@
               <li><a href="./index.html" class="hover:text-red-300 transition-colors flex items-center gap-1">
                   <i class='bx bx-chevron-right text-sm'></i>Home
                 </a></li>
-              <li><a href="./leaderboard.html" class="hover:text-red-300 transition-colors flex items-center gap-1">
-                  <i class='bx bx-chevron-right text-sm'></i>LeaderBoard
-                </a></li>
               <li><a href="./profils.html" class="hover:text-red-300 transition-colors flex items-center gap-1">
                   <i class='bx bx-chevron-right text-sm'></i>Profils
                 </a></li>
+                <ul>
+                  <li>
+                    <a href="javascript:void(0);" id="playLink" class="hover:text-red-300 transition-colors flex items-center gap-1">
+                      <i class='bx bx-chevron-right text-sm'></i>Play
+                    </a>
+                    <ul id="submenu" class="hidden">
+                      <li><a href="./story.html" class="hover:text-red-300">Story</a></li>
+                      <li><a href="./stages.html" class="hover:text-red-300">Stages</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                
               <li><a href="./settings.html" class="hover:text-red-300 transition-colors flex items-center gap-1">
                   <i class='bx bx-chevron-right text-sm'></i>Settings
                 </a></li>
@@ -224,7 +234,7 @@
             <h4 class="font-semibold text-red-400">Connect with us</h4>
             <div class="space-y-3">
               <div class="flex flex-col gap-1">
-                <p class="text-sm font-medium">Emails :</p>
+                <p class="text-sm font-medium">Email :</p>
                 <a href="mailto:fazilah.andrianjaka@gmail.com" class="text-xs hover:text-red-300">fazilah.andrianjaka@gmail.com</a>
                 <a href="mailto:fenohasinaherimamy@gmail.com" class="text-xs hover:text-red-300">fenohasinaherimamy@gmail.com</a>
               </div>
@@ -263,4 +273,6 @@
 <!--le menu dans play ne marche pas lorsque c'est dans le mobile,ca ne s'affiche pas
 la section félicitations , il faut faire son design
 et la responsivité de la page index.html(il faut que tous soit flex-col);
+
+concernant les liens lorsque on clique sur play , il faut que les 2 types de jeux s'affichent
 -->
