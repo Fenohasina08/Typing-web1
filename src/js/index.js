@@ -49,5 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
       behavior: 'smooth'
     });
   });
+  document.getElementById('playLink').addEventListener('click', function() {
+    const submenu = document.getElementById('submenu');
+    submenu.classList.toggle('hidden'); // Utilise 'hidden' pour masquer ou afficher
+  });
+  
   });
   

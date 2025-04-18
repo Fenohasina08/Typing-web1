@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+ document.addEventListener('DOMContentLoaded', function() {
     // Configuration
     const levels = [
       { 
@@ -119,10 +119,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const keyEl = document.createElement('div');
         keyEl.className = 'flex items-center justify-center bg-white rounded shadow text-gray-700 h-10 text-sm';
         
-        // Spécificités pour la barre d’espace    
+        // Gestion spécifique de l'espace
         if (key === ' ') {
-          keyEl.innerHTML = '&nbsp;';
+          keyEl.textContent = '␣'; // Symbole Unicode pour espace
           keyEl.dataset.key = ' ';
+          keyEl.className += ' italic col-span-4';
         } else {
           keyEl.textContent = key;
           keyEl.dataset.key = key.toLowerCase();
@@ -134,7 +135,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (key === 'Caps') keyEl.className += ' col-span-2';
         if (key === 'Enter') keyEl.className += ' col-span-2';
         if (key === 'Shift') keyEl.className += ' col-span-2';
-        if (key === ' ') keyEl.className += ' col-span-4';
         
         // Mise en surbrillance des touches actives pour le niveau
         if (currentLevel.keys.includes(key.toLowerCase()) || (key === ' ' && currentLevel.keys.includes(' '))) {
@@ -153,10 +153,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const keyBox = document.createElement('div');
         keyBox.className = 'w-12 h-12 border-2 relative flex items-center justify-center text-xl';
         
-        // Cas particulier pour un espace
+        // Gestion de l'espace avec symbole spécifique
         if (sequence[i] === ' ') {
-          keyBox.innerHTML = '<span class="border-b-2 border-gray-400 w-6"></span>';
-          keyBox.className += ' border-gray-300 text-gray-500';
+          keyBox.textContent = '␣';
+          keyBox.className += ' border-gray-300 text-gray-500 italic';
         } else {
           keyBox.textContent = sequence[i];
           keyBox.className += ' border-gray-300 text-gray-500';
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // Initialize hands visualization
+    // Initialize hands visualization (inchangé)
     function initHands() {
       handsContainer.innerHTML = `
         <svg viewBox="0 0 650 200" class="w-full h-40 mt-8">
@@ -219,6 +219,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const checkmark = box.querySelector('div');
         if (checkmark) box.removeChild(checkmark);
         
+        // Maintien du symbole espace pendant les mises à jour
+        if (sequence[index] === ' ') {
+          box.textContent = '␣';
+        } else {
+          box.textContent = sequence[index];
+        }
+        
         if (index === currentPosition) {
           box.className = box.className.replace('border-gray-300', 'border-blue-500 border-b-4');
         } else if (index < currentPosition) {
@@ -231,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
     
-    // Update statistics display
+    // Update statistics display (inchangé)
     function updateStats() {
       const accuracy = completedKeys > 0 
         ? Math.round((completedKeys - errors) / completedKeys * 100) 
@@ -249,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function() {
       progressPctEl.textContent = `${progress}%`;
     }
     
-    // Highlight the active finger
+    // Highlight the active finger (inchangé)
     function highlightFinger(key) {
       document.querySelectorAll('path').forEach(path => {
         path.setAttribute('stroke', '#888');
@@ -325,63 +332,62 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Gestion unifiée des événements clavier avec "keydown"
-    function handleKey(e) {
-      if (levelCompleted) return;
-      
-      if (!startTime) {
-        startTime = Date.now();
-      }
-      
-      // Normalisation de la touche pressée pour l'espace
-      let pressedKey = e.key;
-      if (pressedKey === "Spacebar" || pressedKey === " ") {
-        pressedKey = " ";
-        e.preventDefault(); // Empêche le défilement de page lors de l'appui sur espace
-      }
-      pressedKey = pressedKey.toLowerCase();
-      
-      const expectedKey = sequence[currentPosition];
-      
-      // Animation sur le clavier
-      document.querySelectorAll('[data-key]').forEach(key => {
-        if ((key.dataset.key === pressedKey) || (pressedKey === ' ' && key.dataset.key === ' ')) {
-          key.classList.remove('bg-blue-100', 'bg-white');
-          key.classList.add('bg-blue-200');
-          
-          setTimeout(() => {
-            if (currentLevel.keys.includes(pressedKey) || (pressedKey === ' ' && currentLevel.keys.includes(' '))) {
-              key.classList.remove('bg-blue-200');
-              key.classList.add('bg-blue-100', 'ring-2', 'ring-blue-400');
-            } else {
-              key.classList.remove('bg-blue-200');
-              key.classList.add('bg-white');
-            }
-          }, 200);
+    // Gestion unifiée des événements clavier avec "keydown"
+function handleKey(e) {
+  if (levelCompleted) return;
+
+  if (!startTime) {
+    startTime = Date.now();
+  }
+
+  // Normalisation de la touche pressée pour l'espace
+  let pressedKey = e.key;
+  if (pressedKey === "Spacebar" || pressedKey === " ") {
+    pressedKey = " ";
+    e.preventDefault(); // Empêche le défilement de page lors de l'appui sur espace
+  }
+  pressedKey = pressedKey.toLowerCase();
+
+  const expectedKey = sequence[currentPosition];
+
+  // Animation sur le clavier
+  document.querySelectorAll('[data-key]').forEach(key => {
+    if ((key.dataset.key === pressedKey) || (pressedKey === ' ' && key.dataset.key === ' ')) {
+      key.classList.remove('bg-blue-100', 'bg-white');
+      key.classList.add('bg-blue-200');
+
+      setTimeout(() => {
+        if (currentPosition < sequence.length) {
+          key.classList.remove('bg-blue-200');
+          key.classList.add('bg-white');
         }
-      });
-      
-      highlightFinger(pressedKey);
-      
-      if (pressedKey === expectedKey) {
-        currentPosition++;
-        completedKeys++;
-        updateProgress();
-        updateStats();
-        
-        if (currentPosition >= sequence.length) {
-          levelCompleted = true;
-          handleLevelComplete();
-        }
-      } else {
-        errors++;
-        updateStats();
-      }
+      }, 200);  // Retour à l'état initial après une petite animation
     }
+  });
+
+  // Vérification de la touche pressée
+  if (pressedKey === expectedKey) {
+    currentPosition++;  // Avancer la position dans la séquence
+    completedKeys++;     // Incrémenter les touches complétées
+    updateProgress();    // Mettre à jour la barre de progression
+    updateStats();       // Mettre à jour les statistiques (précision, WPM, etc.)
+
+    if (currentPosition === sequence.length) {
+      levelCompleted = true;  // Niveau terminé
+      nextBtnContainer.style.display = 'block';  // Afficher le bouton pour passer au niveau suivant
+    }
+  } else {
+    errors++;  // Compter l'erreur
+  }
+
+  // Highlight de la main ou du doigt actif en fonction de la touche pressée
+  highlightFinger(pressedKey);
+}
+
     
-    // Un seul écouteur d'événement "keydown" pour gérer toute la saisie
+    // Reste du code inchangé...
     document.addEventListener('keydown', handleKey);
     
-    // Traitement de la fin de niveau
     function handleLevelComplete() {
       if (currentLevelIndex < levels.length - 1) {
         nextBtnContainer.classList.remove('hidden');
@@ -391,8 +397,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    
-    // Changer de niveau
     function changeLevel(levelIndex) {
       currentLevelIndex = levelIndex;
       currentLevel = levels[currentLevelIndex];
@@ -413,14 +417,12 @@ document.addEventListener('DOMContentLoaded', function() {
       initKeyboard();
     }
     
-    // Passage au niveau suivant
     function nextLevel() {
       if (currentLevelIndex < levels.length - 1) {
         changeLevel(currentLevelIndex + 1);
       }
     }
     
-    // Réinitialiser l'exercice
     function resetExercise() {
       currentPosition = 0;
       errors = 0;
@@ -431,7 +433,6 @@ document.addEventListener('DOMContentLoaded', function() {
       updateStats();
     }
     
-    // Écouteurs pour les boutons "Recommencer" et "Niveau Suivant"
     restartBtn.addEventListener('click', resetExercise);
     nextBtn.addEventListener('click', nextLevel);
     
@@ -440,5 +441,4 @@ document.addEventListener('DOMContentLoaded', function() {
     initKeyboard();
     initProgress();
     initHands();
-  });
-  
+});
