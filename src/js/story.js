@@ -20,7 +20,6 @@ function updateStars(index, stars) {
     }
 }
 
-// Pour les cœurs
 const heartIcons = document.getElementsByClassName('favoris');
 
 for (let i = 0; i < heartIcons.length; i++) {

@@ -1,95 +1,235 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Test de dactylographie</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+  <title>Mon Profil</title>
   <link rel="stylesheet" href="../css/output.css">
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-<body class="bg-gray-100 flex flex-col items-center justify-center ">
-  <header class="w-full h-[5rem] bg-blue-500 flex justify-between items-center px-6 sticky top-0 z-50">
+<body class="bg-gray-100 text-gray-900 font-sans">
+    <header class="w-full h-[5rem] bg-blue-900 flex justify-between items-center px-6 sticky top-0 z-50 ">
   
-    <div class="flex-1 text-white font-bold text-xl">
-      FastTap
-    </div>
-
-    <input type="checkbox" id="burger-toggle" class="hidden peer" aria-hidden="true" />
-    <label for="burger-toggle" class="lg:hidden text-white text-3xl cursor-pointer z-50" aria-label="Ouvrir/Cacher le menu de navigation">
-    <i class='bx bx-menu' aria-hidden="true"></i>
-    </label>
-
-  <!-- Menu desktop -->
-    <nav role="navigation" aria-label="Navigation principale" class="hidden lg:flex flex-[2] justify-end">
-      <ul class="flex gap-8 text-white font-bold text-lg items-center flex flex-row">
-        <li>
-          <a href="./index.html" class="flex items-center hover:underline" aria-current="page">
-            <i class='bx bx-home-alt text-xl mr-2' aria-hidden="true"></i>Home
-          </a>
-        </li>
-        <li>
-          <a href="./profils.html" class="flex items-center hover:underline">
-            <i class='bx bx-user-circle text-xl mr-2' aria-hidden="true"></i>Profils
-          </a>
-        </li>
-      <!-- Dropdown for Play -->
-        <li class="relative">
-          <button id="play-button" class="flex items-center hover:underline focus:outline-none">
-            <i class='bx bx-play-circle text-xl mr-2' aria-hidden="true"></i>Play
-          </button>
-          <ul id="play-dropdown" class="absolute hidden bg-white text-gray-800 mt-2 rounded shadow-lg w-48 z-50">
+        <div class="flex-1 text-white font-bold text-xl">
+          FastTap
+        </div>
+    
+        <input type="checkbox" id="burger-toggle" class="hidden peer" aria-hidden="true" />
+        <label for="burger-toggle" class="lg:hidden text-white text-3xl cursor-pointer z-50" aria-label="Ouvrir/Cacher le menu de navigation">
+        <i class='bx bx-menu' aria-hidden="true"></i>
+        </label>
+    
+     
+        <nav role="navigation" aria-label="Navigation principale" class="hidden lg:flex flex-[2] justify-end">
+          <ul class="flex gap-8 text-white font-bold text-lg items-center flex flex-row">
             <li>
-              <a href="./story.html" class="block px-4 py-2 hover:bg-gray-100">Story</a>
+              <a href="./index.html" class="flex items-center hover:text-pink-500" aria-current="page">
+                <i class='bx bx-home-alt text-xl mr-2' aria-hidden="true"></i>Home
+              </a>
             </li>
+             
+            <li class="relative">
+              <button id="play-button" class="flex items-center hover:text-pink-500 focus:outline-none">
+                <i class='bx bx-play-circle text-xl mr-2' aria-hidden="true"></i>Play
+              </button>
+              <ul id="play-dropdown" class="absolute hidden bg-white text-gray-800 mt-2 rounded shadow-lg w-48 z-50">
+                <li>
+                  <a href="./story.html" class="block px-4 py-2 hover:bg-gray-100 hover:text-pink-500">Story</a>
+                </li>
+                <li>
+                  <a href="./stages.html" class="block px-4 py-2 hover:bg-gray-100 hover:text-pink-500">Stages</a>
+                </li>
+              </ul>
+            </li>
+            
+            
             <li>
-              <a href="./stages.html" class="block px-4 py-2 hover:bg-gray-100">Stages</a>
+              <a href="./profils.html" class="flex items-center hover:text-pink-500">
+                <i class='bx bx-user-circle text-xl mr-2' aria-hidden="true"></i>Profils
+              </a>
             </li>
           </ul>
-        </li>
-        <li>
-            <a href="./settings.html" class="flex items-center hover:underline">
-              <i class='bx bx-user-circle text-xl mr-2' aria-hidden="true"></i>Settings
-            </a>
-          </li>
-      </ul>
-    </nav>
-
-  <!-- Menu mobile -->
-    <div id="mobile-menu" class="hidden peer-checked:flex lg:hidden flex-col gap-2 bg-white shadow-lg border border-gray-200 px-4 py-4 font-semibold text-gray-800 absolute top-[5rem] left-0 w-full z-40">
-      <a href="./index.html" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all" tabindex="0">
-        <i class='bx bx-home-alt text-xl mr-2 text-blue-600' aria-hidden="true"></i>Home
-      </a>
-      <a href="./profils.html" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all" tabindex="0">
-        <i class='bx bx-user-circle text-xl mr-2 text-blue-600' aria-hidden="true"></i>Profils
-      </a>
-    <!-- Dropdown for Play in mobile -->
-      <div class="flex flex-col">
-        <button id="mobile-play-button" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all focus:outline-none">
-          <i class='bx bx-play-circle text-xl mr-2 text-blue-600' aria-hidden="true"></i>Play
-        </button>
-        <div id="mobile-play-dropdown" class="ml-6 hidden">
-          <a href="./story.html" class="block px-4 py-2 hover:bg-blue-50 rounded-lg transition-all" tabindex="0">Story</a>
-          <a href="./stages.html" class="block px-4 py-2 hover:bg-blue-50 rounded-lg transition-all" tabindex="0">Stages</a>
+        </nav>
+    
+      
+        <div id="mobile-menu" class="hidden peer-checked:flex lg:hidden flex-col gap-2 bg-white shadow-lg border border-gray-200 px-4 py-4 font-semibold text-gray-800 absolute top-[5rem] left-0 w-full z-40">
+          <a href="./index.html" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all" tabindex="0">
+            <i class='bx bx-home-alt text-xl mr-2 text-blue-600' aria-hidden="true"></i>Home
+          </a>
+         
+          <a href="./profils.html" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all" tabindex="0">
+            <i class='bx bx-user-circle text-xl mr-2 text-blue-600' aria-hidden="true"></i>Profils
+          </a>
+        
+          <div class="flex flex-col">
+            <button id="mobile-play-button" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all focus:outline-none">
+              <i class='bx bx-play-circle text-xl mr-2 text-blue-600' aria-hidden="true"></i>Play
+            </button>
+            <div id="mobile-play-dropdown" class="ml-6 hidden">
+              <a href="./story.html" class="block px-4 py-2 hover:bg-blue-50 rounded-lg transition-all " tabindex="0" >Story</a>
+              <a href="./stages.html" class="block px-4 py-2 hover:bg-blue-50 rounded-lg transition-all" tabindex="0">Stages</a>
+            </div>
+          </div>
+           
+        </div>
+         
+    </header>
+    
+ 
+  <div class="pt-20 container mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <div class="lg:col-span-1 flex flex-col items-center">
+        <div class="bg-white rounded-xl shadow-md p-6 w-full text-center mb-6">
+          <div class="mb-4">
+            <img id="profileImage" src="https://via.placeholder.com/150" alt="Photo de profil"
+              class="w-32 h-32 object-cover rounded-full mx-auto border-4 border-blue-600">
+            <label for="uploadProfile" class="cursor-pointer mt-3 block text-sm text-blue-600 hover:underline">
+              Changer la photo
+            </label>
+            <input type="file" id="uploadProfile" class="hidden" accept="image/*" onchange="changeProfilePicture(event)">
+          </div>
+          <h3 class="text-xl font-semibold mb-1">Herimamy Fenohasina</h3>
+          <p class="text-gray-500 text-sm mb-2">Student at HEI</p>
+          <div class="mt-4">
+            <h3 class="text-md font-semibold flex items-center justify-center gap-2 text-gray-700">
+              <i class="fas fa-share-alt"></i>follow me
+            </h3>
+            <div class="flex justify-around mt-2">
+              <a href="#" class="text-blue-600 hover:text-blue-700"><i class="fab fa-facebook fa-2x"></i></a>
+              <a href="#" class="text-blue-400 hover:text-blue-500"><i class="fab fa-twitter fa-2x"></i></a>
+              <a href="#" class="text-pink-600 hover:text-pink-700"><i class="fab fa-instagram fa-2x"></i></a>
+              <a href="#" class="text-red-600 hover:text-red-700"><i class="fab fa-youtube fa-2x"></i></a>
+            </div>
+          </div>
         </div>
       </div>
-      <button class="open-settings flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all">
-        <i class='bx bx-cog text-xl mr-2 text-blue-600'></i>Settings
-      </button>
-    </div>
-    <div id="settings-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-[100]">
-      <div class="settings-content bg-white p-6 rounded-lg absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md">
-        <button class="close-settings absolute top-4 right-4 text-gray-500">
-          <i class='bx bx-x text-2xl'></i>
-        </button>
-        <h2 class="text-2xl font-bold mb-4">Paramètres</h2>
-        <!-- Contenu des paramètres ici -->
+
+      
+      <div class="lg:col-span-2">
+        <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+          <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold mb-2">My preferences</h2>
+            <p class="text-gray-600"> Set your preferences for the best possible experience.</p>
+          </div>
+          <form id="preferencesForm">
+            <div class="grid grid-cols-1 gap-6">
+              <div>
+                <label for="username" class="block text-sm font-semibold text-gray-600 mb-2">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" value="feno"
+                  class="w-full p-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-semibold text-gray-600 mb-2">E-mail</label>
+                <input type="email" id="email" name="email" value="feno@example.com"
+                  class="w-full p-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+              </div>
+              
+              
+              <div class="flex justify-center mt-8">
+                <button type="submit"
+                  class="px-8 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition-all duration-200">
+                  Saved
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </header>
-  <div id="contenu">
-      
   </div>
-  <script src="../js/index.js"></script>
+  <footer class="bg-blue-900 text-white mt-[6rem] pt-2 w-full h-full  flex flex-col">
+      
+    <div id="footer_up" class="h-[80%] flex flex-row">
+      <button id="back-to-top"
+              class="fixed bottom-4 right-4 p-3 bg-gradient-to-br from-pink-500 to-yellow-400 rounded-full shadow-lg hover:scale-105 transition-all duration-300 opacity-0">
+        <i class='bx bx-chevron-up text-xl text-white'></i>
+      </button>
+  
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          
+          
+          <div class="space-y-4 px-4">
+            <h3 class="font-bold text-2xl text-pink-400">FastTap</h3>
+            <form class="space-y-3">
+              <p class="text-sm font-medium text-yellow-300">Wanna build an app website with us??</p>
+              <div class="flex gap-2">
+                <input type="email" placeholder="Your email"
+                       class="flex-1 px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 text-white text-sm focus:outline-none focus:border-pink-400">
+                <button type="submit"
+                        class="px-4 py-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-lg transition-all text-sm font-semibold">
+                  Join
+                </button>
+              </div>
+            </form>
+          </div>
+  
+           
+          <div class="space-y-4 px-4">
+            <h4 class="font-semibold text-purple-300">Navigation</h4>
+            <ul class="space-y-2">
+              <li><a href="./index.html" class="hover:text-yellow-300 transition-colors flex items-center gap-1">
+                  <i class='bx bx-chevron-right text-sm text-green-300'></i>Home
+                </a></li>
+              <li><a href="./profils.html" class="hover:text-yellow-300 transition-colors flex items-center gap-1">
+                  <i class='bx bx-chevron-right text-sm text-green-300'></i>Profils
+                </a></li>
+                <ul>
+                  <li>
+                    <a href="javascript:void(0);" id="playLink" class="hover:text-yellow-300 transition-colors flex items-center gap-1">
+                      <i class='bx bx-chevron-right text-sm text-green-300'></i>Play
+                    </a>
+                    <ul id="submenu" class="hidden pl-4">
+                      <li><a href="./story.html" class="hover:text-cyan-300">Story</a></li>
+                      <li><a href="./stages.html" class="hover:text-cyan-300">Stages</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              <li><a href="./settings.html" class="hover:text-yellow-300 transition-colors flex items-center gap-1">
+                  <i class='bx bx-chevron-right text-sm text-green-300'></i>Settings
+                </a></li>
+            </ul>
+          </div>
+  
+          
+          <div class="space-y-4 px-4">
+            <h4 class="font-semibold text-indigo-300">Connect with us</h4>
+            <div class="space-y-3">
+              <div class="flex flex-col gap-1">
+                <p class="text-sm font-medium text-yellow-300">Email :</p>
+                <a href="mailto:fazilah.andrianjaka@gmail.com" class="text-xs hover:text-pink-300">fazilah.andrianjaka@gmail.com</a>
+                <a href="mailto:fenohasinaherimamy@gmail.com" class="text-xs hover:text-pink-300">fenohasinaherimamy@gmail.com</a>
+              </div>
+              <div class="flex gap-4 pt-2">
+                <a href="https://www.facebook.com/fazi.lah.5661"
+                   class="flex items-center gap-2 p-2 bg-gray-800 rounded-full hover:bg-pink-600 transition-colors">
+                  <i class="bx bxl-facebook-circle text-xl text-white"></i>
+                  <span class="text-white text-sm font-medium">Fagilah Andrianjaka</span>
+                </a>
+               
+                <a href="https://www.facebook.com/profile.php?viewas=100000686899395&id=100057313188202"
+                   class="flex items-center gap-2 p-2 bg-gray-800 rounded-full hover:bg-pink-600 transition-colors">
+                  <i class="bx bxl-facebook-circle text-xl text-white"></i>
+                  <span class="text-white text-sm font-medium">feno hasi-na</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+   
+    <div id="footer_down"
+      class="border-t border-gray-800 pt-6 text-center text-sm text-gray-400 flex h-[20%] items-center justify-center">
+      <p>© 2025 <span class="text-gradient bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">FastTap</span>. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  
+
+   <script src="../js/profils.js"></script>
+   <script src="../js/index.js"></script>
 </body>
 </html>
