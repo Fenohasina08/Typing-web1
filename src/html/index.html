@@ -1,262 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Test de dactylographie</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/output.css">
-  <link rel="stylesheet" href="../css/colors.css">
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Connexion</title>
+  <link rel="stylesheet" href="../css/output.css" />
 </head>
-
-<body class="flex flex-col w-full h-full text-[20px]">
-  
-  <header class="w-full h-[5rem] bg-blue-900 flex justify-between items-center px-6 sticky top-0 z-50 ">
-  
-    <div class="flex-1 text-white font-bold text-xl">
-      FastTap
-    </div>
-
-    <input type="checkbox" id="burger-toggle" class="hidden peer" aria-hidden="true" />
-    <label for="burger-toggle" class="lg:hidden text-white text-3xl cursor-pointer z-50" aria-label="Ouvrir/Cacher le menu de navigation">
-    <i class='bx bx-menu' aria-hidden="true"></i>
-    </label>
-
- 
-    <nav role="navigation" aria-label="Navigation principale" class="hidden lg:flex flex-[2] justify-end">
-      <ul class="flex gap-8 text-white font-bold text-lg items-center flex flex-row">
-        <li>
-          <a href="./index.html" class="flex items-center hover:text-pink-500" aria-current="page">
-            <i class='bx bx-home-alt text-xl mr-2' aria-hidden="true"></i>Home
-          </a>
-        </li>
-      
-        <li class="relative">
-          <button id="play-button" class="flex items-center hover:text-pink-500 focus:outline-none">
-            <i class='bx bx-play-circle text-xl mr-2' aria-hidden="true"></i>Play
-          </button>
-          <ul id="play-dropdown" class="absolute hidden bg-white text-gray-800 mt-2 rounded shadow-lg w-48 z-50">
-            <li>
-              <a href="./story.html" class="block px-4 py-2 hover:bg-gray-100 hover:text-pink-500">Story</a>
-            </li>
-            <li>
-              <a href="./stages.html" class="block px-4 py-2 hover:bg-gray-100 hover:text-pink-500">Stages</a>
-            </li>
-          </ul>
-        </li>
-        
-        
-        <li>
-          <a href="./profils.html" class="flex items-center hover:text-pink-500">
-            <i class='bx bx-user-circle text-xl mr-2' aria-hidden="true"></i>Profils
-          </a>
-        </li>
-        <li>
-          <a href="./login.html">
-            <i></i>Login
-          </a>
-        </li>
-      </ul>
-    </nav>
-
- 
-    <div id="mobile-menu" class="hidden peer-checked:flex lg:hidden flex-col gap-2 bg-white shadow-lg border border-gray-200 px-4 py-4 font-semibold text-gray-800 absolute top-[5rem] left-0 w-full z-40">
-      <a href="./index.html" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all" tabindex="0">
-        <i class='bx bx-home-alt text-xl mr-2 text-blue-600' aria-hidden="true"></i>Home
-      </a>
-     
-      <a href="./profils.html" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all" tabindex="0">
-        <i class='bx bx-user-circle text-xl mr-2 text-blue-600' aria-hidden="true"></i>Profils
-      </a>
-    
-      <div class="flex flex-col">
-        <button id="mobile-play-button" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all focus:outline-none">
-          <i class='bx bx-play-circle text-xl mr-2 text-blue-600' aria-hidden="true"></i>Play
-        </button>
-        <div id="mobile-play-dropdown" class="ml-6 hidden">
-          <a href="./story.html" class="block px-4 py-2 hover:bg-blue-50 rounded-lg transition-all " tabindex="0" >Story</a>
-          <a href="./stages.html" class="block px-4 py-2 hover:bg-blue-50 rounded-lg transition-all" tabindex="0">Stages</a>
-        </div>
+<body class="min-h-screen flex items-center justify-center bg-sky-500">
+  <div class="bg-white/10 backdrop-blur-md rounded-2xl shadow-xl p-8 w-full max-w-sm text-white">
+    <form id="formulaire">
+      <h2 class="text-2xl font-semibold text-center mb-6">Connexion</h2>
+      <div class="mb-4">
+        <label for="email" class="block mb-1">Email</label>
+        <input id="email" name="email" type="email" required
+               class="w-full px-4 py-2 rounded-lg bg-white/20 placeholder-white focus:outline-none focus:ring-2 focus:ring-white"
+               placeholder="true@gmail.com">
       </div>
-       
-    </div>
-     
-</header>
-
-    <div id="bienvenu" class="w-screen h-screen flex  md:flex-row p-8  text-black">
- 
-      <div id="bienvenu_left" class="flex w-full md:w-1/2 h-full items-center justify-center flex-col space-y-6 ">
-        <h4 class="text-2xl text-white font-semibold">Typing Online</h4>
-        <h2 class="text-3xl italic">Discover the Typing World</h2>
-        <p class="text-black text-center max-w-md leading-relaxed text-2xl">
-          This is an English-language website designed to help you become faster and more accurate at typing on a computer. Our goal is to reduce your typing errors and increase your typing speed.
-        </p>
-        <button class=" px-6 py-3 rounded-full bg-blue-900 hover:bg-pink-300 transition-all duration-300">
-          <a href="./story.html" class="text-2xl text-white">Let's go </a>
-        </button>
+      <div class="mb-6">
+        <label for="password" class="block mb-1">Password</label>
+        <input id="password" name="password" type="password" required
+               class="w-full px-4 py-2 rounded-lg bg-white/20 placeholder-white focus:outline-none focus:ring-2 focus:ring-white"
+               placeholder="fozaorana">
       </div>
-
- 
-      <div id="bienvenu_right" class="flex w-full md:w-1/2 h-full justify-center items-center">
-        <img src="/images/clavier_euro.png" alt="Typing keyboard" class="h-[50vh] drop-shadow-2xl rounded-2xl">
-      </div>
-    </div>
-
-
-    <div id="historic" class="w-[100vw] h-[90vh]  flex flex-col justify-center item">
-      <div id="historic_up" class="w-[100vw] h-[20%] flex">
-        <div class="flex justify-center items-center w-full h-full gap-6">
-          
-          <div class="w-20 h-20 bg-blue-300 rounded-md float-card delay-0"></div>
-          <div class="w-20 h-20 bg-green-300 rounded-md float-card delay-1"></div>
-          <div class="w-20 h-20 bg-red-300 rounded-md float-card delay-2"></div>
-        </div>
-      </div>
-      
-
-      <div id="historic_down"class="w-[100vw] h-[80%]  flex flex-row">
-        <div class="  w-1/2 h-full  text-center justify-center flex flex-col ml-2">
-           <img src="/images/vestrahorn-mountains-stokksnes-iceland.jpg" alt="image of someone who is doing typing">
-           
-        </div>
-        <div class="w-1/2 h-[20rem] flex flex-col justify-center items-center text-center relative px-4 mt-[8rem] ">
-          <p class="font-semibold">Created by:</p>
-        
-          <div class="description mt-4 text-gray-700 max-w-md">
-            <p class="text- leading-relaxed text-[20px]">
-              We are first-year students at HEI (Haute École d'Informatique), in the common core program.
-              We created this website to help ourselves and other students like us—or even people who already have
-              a job and want to improve their soft skills. It's also great for anyone who is simply curious and wants to find out how good they are at typing.
-            </p>
-        
-            <div id="image" class="flex flex-row gap-5 mt-4 justify-center items-center ">
-              <div id="image1">
-                <img src="/images/fazilah.jpg" alt="Fazilah" class="w-24 h-24 rounded-full object-cover shadow-md">
-                <p>Fazilah</p>
-               
-              </div>
-              <div id="image2">
-                <img src="/images/Fenohasina.jpg" alt="Fenohasina" class="w-24 h-24 rounded-full object-cover shadow-md">
-                <p>Fenohasina</p>
-              </div>
-              
-
-            </div>
-          </div>
-        </div>
-        
-      </div>
-        
-        
-            
-    </div>
-  </div>
-  <div class="w-full h-[50vh] flex flex-row">
-      <div class="w-1/2 h-full items-center justify-center flex flex-col text-[20px] text-black  gap-8">
-          <h3 class="text-3xl">How does it work?</h3>
-          <p> You can click Play in the navigation menu and choose between typing<br>
-             full books or completing challenges by selecting different stages.</p>
-      </div>
-      <div class="h-full text-amber-50  justify-center items-end flex flex-col text-[] text-black  gap-8">
-          <h3 class="text-3xl">Do I need an account?</h3>
-          <p class="flex ml-8"> No, you don’t need to create an account to play our games.<br>
-              However, having an account allows you to save your progress and pick up <br>
-              right where you left off.</p>
-      </div>
-  </div>
-  <footer class="bg-blue-900 text-white mt-auto w-full py-6 flex flex-col text-2xl">
-     
-    <div id="footer_up" class="h-[80%] flex flex-row">
-      <button id="back-to-top"
-              class="fixed bottom-4 right-4 p-3 bg-gradient-to-br from-pink-500 to-yellow-400 rounded-full shadow-lg hover:scale-105 transition-all duration-300 opacity-0">
-        <i class='bx bx-chevron-up text-xl text-white'></i>
+      <button type="submit"
+              class="w-full py-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 font-semibold transition duration-200">
+        Login
       </button>
-  
-      <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          
-          
-          <div class="space-y-4 px-4">
-            <h3 class="font-bold text-2xl text-pink-400">FastTap</h3>
-            <form class="space-y-3">
-              <p class="text-sm font-medium text-yellow-300">Wanna build an app website with us??</p>
-              <div class="flex gap-2">
-                <input type="email" placeholder="Your email"
-                       class="flex-1 px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 text-white text-sm focus:outline-none focus:border-pink-400">
-                <button type="submit"
-                        class="px-4 py-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-lg transition-all text-sm font-semibold">
-                  Join
-                </button>
-              </div>
-            </form>
-          </div>
-  
-           
-          <div class="space-y-4 px-4">
-            <h4 class="font-semibold text-purple-300">Navigation</h4>
-            <ul class="space-y-2">
-              <li><a href="./index.html" class="hover:text-yellow-300 transition-colors flex items-center gap-1">
-                  <i class='bx bx-chevron-right text-sm text-green-300'></i>Home
-                </a></li>
-              <li><a href="./profils.html" class="hover:text-yellow-300 transition-colors flex items-center gap-1">
-                  <i class='bx bx-chevron-right text-sm text-green-300'></i>Profils
-                </a></li>
-                <ul>
-                  <li>
-                    <a href="javascript:void(0);" id="playLink" class="hover:text-yellow-300 transition-colors flex items-center gap-1">
-                      <i class='bx bx-chevron-right text-sm text-green-300'></i>Play
-                    </a>
-                    <ul id="submenu" class="hidden pl-4">
-                      <li><a href="./story.html" class="hover:text-cyan-300">Story</a></li>
-                      <li><a href="./stages.html" class="hover:text-cyan-300">Stages</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              <li><a href="./settings.html" class="hover:text-yellow-300 transition-colors flex items-center gap-1">
-                  <i class='bx bx-chevron-right text-sm text-green-300'></i>Settings
-                </a></li>
-            </ul>
-          </div>
-   
-          <div class="space-y-4 px-4">
-            <h4 class="font-semibold text-indigo-300">Connect with us</h4>
-            <div class="space-y-3">
-              <div class="flex flex-col gap-1">
-                <p class="text-sm font-medium text-yellow-300">Email :</p>
-                <a href="mailto:fazilah.andrianjaka@gmail.com" class="text-xs hover:text-pink-300">fazilah.andrianjaka@gmail.com</a>
-                <a href="mailto:fenohasinaherimamy@gmail.com" class="text-xs hover:text-pink-300">fenohasinaherimamy@gmail.com</a>
-              </div>
-              <div class="flex gap-4 pt-2">
-                <a href="https://www.facebook.com/fazi.lah.5661"
-                   class="flex items-center gap-2 p-2 bg-gray-800 rounded-full hover:bg-pink-600 transition-colors">
-                  <i class="bx bxl-facebook-circle text-xl text-white"></i>
-                  <span class="text-white text-sm font-medium">Fagilah Andrianjaka</span>
-                </a>
-               
-                <a href="https://www.facebook.com/profile.php?viewas=100000686899395&id=100057313188202"
-                   class="flex items-center gap-2 p-2 bg-gray-800 rounded-full hover:bg-pink-600 transition-colors">
-                  <i class="bx bxl-facebook-circle text-xl text-white"></i>
-                  <span class="text-white text-sm font-medium">feno hasi-na</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    
-    <div id="footer_down"
-      class="border-t border-gray-800 pt-6 text-center text-sm text-gray-400 flex h-[20%] items-center justify-center">
-      <p>© 2025 <span class="text-gradient bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">FastTap</span>. All rights reserved.</p>
-    </div>
-  </footer>
-  
-  
-  
+    </form>
+  </div>
+
+  <script src="../js/login.js"></script>
 </body>
-<script src="../js/index.js"></script>
 </html>
- 

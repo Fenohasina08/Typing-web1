@@ -5,7 +5,29 @@
      --text-color:black;
      --button-color:orange
 }
+ 
+.header {
+  transform: translateY(-100%);  
+  transition: transform 1.5s ease-in-out;  
+}
 
+.header.show {
+  transform: translateY(0);  
+}
+
+#bienvenu_left, #bienvenu_right {
+  transform: translateX(-100%);  
+  transition: transform 1s ease-in-out;  
+}
+
+ 
+#bienvenu_left.show {
+  transform: translateX(0);  
+}
+
+#bienvenu_right.show {
+  transform: translateX(0); 
+}
 @keyframes floatUpDown {
      0% {
        transform: translateY(30px);

@@ -1,14 +1,17 @@
 document.getElementById("formulaire").addEventListener("submit", function(event) {
   event.preventDefault();
-  
+
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const validEmail = "fazilah.andriatiana@gmail.com";
-  const validPassword = "foza_orana";
+  console.log("Email: " + email);
+  console.log("Password: " + password);
+
+  const validEmail = "true@gmail.com";
+  const validPassword = "fozaorana";
 
   if (email === validEmail && password === validPassword) {
-    window.location.href = "./index.html";
+    window.location.href = "../html/home.html";
   } else {
     alert("Please enter the email and password shown in the placeholders.");
   }
