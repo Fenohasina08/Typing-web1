@@ -1,5 +1,5 @@
  document.addEventListener('DOMContentLoaded', function() {
-    // Configuration
+    
     const levels = [
       { 
         id: 1,
@@ -63,7 +63,7 @@
       }
     ];
     
-    // State
+    
     let currentLevelIndex = 0;
     let currentLevel = levels[currentLevelIndex];
     let sequence = currentLevel.sequence;
@@ -73,7 +73,7 @@
     let completedKeys = 0;
     let levelCompleted = false;
     
-    // DOM Elements
+     
     const keyboardContainer = document.getElementById('keyboard-container');
     const keyboardEl = document.getElementById('keyboard');
     const progressEl = document.getElementById('progress');
@@ -87,7 +87,7 @@
     const nextBtn = document.getElementById('next-btn');
     const handsContainer = document.getElementById('hands-container');
     
-    // Initialize level selector
+     
     function initLevelSelector() {
       levelSelectorEl.innerHTML = '';
       
@@ -102,7 +102,7 @@
       });
     }
     
-    // Initialize keyboard layout
+     
     function initKeyboard() {
       keyboardEl.innerHTML = '';
       keyboardEl.className = 'grid grid-cols-14 gap-1 bg-gray-100 rounded-lg p-4';
@@ -119,9 +119,9 @@
         const keyEl = document.createElement('div');
         keyEl.className = 'flex items-center justify-center bg-white rounded shadow text-gray-700 h-10 text-sm';
         
-        // Gestion spécifique de l'espace
+       
         if (key === ' ') {
-          keyEl.textContent = '␣'; // Symbole Unicode pour espace
+          keyEl.textContent = '␣'; 
           keyEl.dataset.key = ' ';
           keyEl.className += ' italic col-span-4';
         } else {
@@ -129,14 +129,14 @@
           keyEl.dataset.key = key.toLowerCase();
         }
         
-        // Ajustement de la largeur pour certaines touches
+        
         if (key === 'Backspace') keyEl.className += ' col-span-2';
         if (key === 'Tab') keyEl.className += ' col-span-2';
         if (key === 'Caps') keyEl.className += ' col-span-2';
         if (key === 'Enter') keyEl.className += ' col-span-2';
         if (key === 'Shift') keyEl.className += ' col-span-2';
         
-        // Mise en surbrillance des touches actives pour le niveau
+        
         if (currentLevel.keys.includes(key.toLowerCase()) || (key === ' ' && currentLevel.keys.includes(' '))) {
           keyEl.className = keyEl.className.replace('bg-white', 'bg-blue-100 ring-2 ring-blue-400');
         }
@@ -145,7 +145,7 @@
       });
     }
     
-    // Initialize progress display
+    
     function initProgress() {
       progressEl.innerHTML = '';
       
@@ -153,7 +153,7 @@
         const keyBox = document.createElement('div');
         keyBox.className = 'w-12 h-12 border-2 relative flex items-center justify-center text-xl';
         
-        // Gestion de l'espace avec symbole spécifique
+        
         if (sequence[i] === ' ') {
           keyBox.textContent = '␣';
           keyBox.className += ' border-gray-300 text-gray-500 italic';
@@ -176,7 +176,7 @@
       }
     }
     
-    // Initialize hands visualization (inchangé)
+    
     function initHands() {
       handsContainer.innerHTML = `
         <svg viewBox="0 0 650 200" class="w-full h-40 mt-8">
@@ -209,7 +209,7 @@
       `;
     }
     
-    // Update progress display
+    
     function updateProgress() {
       document.querySelectorAll('#progress > div').forEach((box, index) => {
         box.className = box.className
@@ -219,7 +219,7 @@
         const checkmark = box.querySelector('div');
         if (checkmark) box.removeChild(checkmark);
         
-        // Maintien du symbole espace pendant les mises à jour
+        
         if (sequence[index] === ' ') {
           box.textContent = '␣';
         } else {
@@ -238,7 +238,7 @@
       });
     }
     
-    // Update statistics display (inchangé)
+    
     function updateStats() {
       const accuracy = completedKeys > 0 
         ? Math.round((completedKeys - errors) / completedKeys * 100) 
@@ -256,7 +256,7 @@
       progressPctEl.textContent = `${progress}%`;
     }
     
-    // Highlight the active finger (inchangé)
+    
     function highlightFinger(key) {
       document.querySelectorAll('path').forEach(path => {
         path.setAttribute('stroke', '#888');
@@ -331,26 +331,24 @@
       }
     }
     
-    // Gestion unifiée des événements clavier avec "keydown"
-    // Gestion unifiée des événements clavier avec "keydown"
+    
 function handleKey(e) {
   if (levelCompleted) return;
 
   if (!startTime) {
     startTime = Date.now();
   }
-
-  // Normalisation de la touche pressée pour l'espace
+ 
   let pressedKey = e.key;
   if (pressedKey === "Spacebar" || pressedKey === " ") {
     pressedKey = " ";
-    e.preventDefault(); // Empêche le défilement de page lors de l'appui sur espace
+    e.preventDefault(); 
   }
   pressedKey = pressedKey.toLowerCase();
 
   const expectedKey = sequence[currentPosition];
 
-  // Animation sur le clavier
+ 
   document.querySelectorAll('[data-key]').forEach(key => {
     if ((key.dataset.key === pressedKey) || (pressedKey === ' ' && key.dataset.key === ' ')) {
       key.classList.remove('bg-blue-100', 'bg-white');
@@ -361,31 +359,32 @@ function handleKey(e) {
           key.classList.remove('bg-blue-200');
           key.classList.add('bg-white');
         }
-      }, 200);  // Retour à l'état initial après une petite animation
+      }, 200);  
     }
   });
 
-  // Vérification de la touche pressée
+   
   if (pressedKey === expectedKey) {
-    currentPosition++;  // Avancer la position dans la séquence
-    completedKeys++;     // Incrémenter les touches complétées
-    updateProgress();    // Mettre à jour la barre de progression
-    updateStats();       // Mettre à jour les statistiques (précision, WPM, etc.)
+    currentPosition++; 
+    completedKeys++;  
+    updateProgress();    
+    updateStats();       
 
     if (currentPosition === sequence.length) {
-      levelCompleted = true;  // Niveau terminé
-      nextBtnContainer.style.display = 'block';  // Afficher le bouton pour passer au niveau suivant
+      levelCompleted = true;  
+      nextBtnContainer.style.display = 'block';  
     }
-  } else {
-    errors++;  // Compter l'erreur
+  } 
+    else {
+    errors++;  
   }
 
-  // Highlight de la main ou du doigt actif en fonction de la touche pressée
+  
   highlightFinger(pressedKey);
 }
 
     
-    // Reste du code inchangé...
+    
     document.addEventListener('keydown', handleKey);
     
     function handleLevelComplete() {
