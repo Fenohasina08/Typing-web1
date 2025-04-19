@@ -67,6 +67,8 @@
     --spacing: 0.25rem;
     --container-sm: 24rem;
     --container-md: 28rem;
+    --container-xl: 36rem;
+    --container-2xl: 42rem;
     --container-4xl: 56rem;
     --container-6xl: 72rem;
     --text-xs: 0.75rem;
@@ -94,6 +96,10 @@
     --radius-xl: 0.75rem;
     --radius-2xl: 1rem;
     --radius-3xl: 1.5rem;
+<<<<<<< HEAD
+=======
+    --radius-4xl: 2rem;
+>>>>>>> 1f488bb (avant fin commit)
     --drop-shadow-lg: 0 4px 4px rgb(0 0 0 / 0.15);
     --drop-shadow-2xl: 0 25px 25px rgb(0 0 0 / 0.15);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
@@ -255,6 +261,20 @@
 @layer utilities {
   .pointer-events-none {
     pointer-events: none;
+<<<<<<< HEAD
+=======
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+>>>>>>> 1f488bb (avant fin commit)
   }
   .absolute {
     position: absolute;
@@ -277,6 +297,15 @@
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
+<<<<<<< HEAD
+=======
+  .top-1 {
+    top: calc(var(--spacing) * 1);
+  }
+  .top-4 {
+    top: calc(var(--spacing) * 4);
+  }
+>>>>>>> 1f488bb (avant fin commit)
   .top-\[5rem\] {
     top: 5rem;
   }
@@ -289,6 +318,15 @@
   .left-0 {
     left: calc(var(--spacing) * 0);
   }
+<<<<<<< HEAD
+=======
+  .left-1 {
+    left: calc(var(--spacing) * 1);
+  }
+  .z-10 {
+    z-index: 10;
+  }
+>>>>>>> 1f488bb (avant fin commit)
   .z-40 {
     z-index: 40;
   }
@@ -318,6 +356,9 @@
     @media (width >= 96rem) {
       max-width: 96rem;
     }
+  }
+  .m-0 {
+    margin: calc(var(--spacing) * 0);
   }
   .mx-auto {
     margin-inline: auto;
@@ -406,6 +447,12 @@
   .h-40 {
     height: calc(var(--spacing) * 40);
   }
+  .h-50 {
+    height: calc(var(--spacing) * 50);
+  }
+  .h-96 {
+    height: calc(var(--spacing) * 96);
+  }
   .h-\[5rem\] {
     height: 5rem;
   }
@@ -436,8 +483,14 @@
   .h-full {
     height: 100%;
   }
+  .h-max {
+    height: max-content;
+  }
   .h-screen {
     height: 100vh;
+  }
+  .max-h-full {
+    max-height: 100%;
   }
   .min-h-screen {
     min-height: 100vh;
@@ -496,11 +549,36 @@
   .border-collapse {
     border-collapse: collapse;
   }
+<<<<<<< HEAD
+=======
+  .-translate-x-1 {
+    --tw-translate-x: calc(var(--spacing) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-translate-y-1 {
+    --tw-translate-y: calc(var(--spacing) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .scale-95 {
+    --tw-scale-x: 95%;
+    --tw-scale-y: 95%;
+    --tw-scale-z: 95%;
+    scale: var(--tw-scale-x) var(--tw-scale-y);
+  }
+>>>>>>> 1f488bb (avant fin commit)
   .transform {
     transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
   }
   .animate-bounce {
     animation: var(--animate-bounce);
+  }
+<<<<<<< HEAD
+  .animate-pulse {
+    animation: var(--animate-pulse);
+=======
+  .animate-ping {
+    animation: var(--animate-ping);
+>>>>>>> 1f488bb (avant fin commit)
   }
   .animate-pulse {
     animation: var(--animate-pulse);
@@ -599,6 +677,12 @@
   .rounded-2xl {
     border-radius: var(--radius-2xl);
   }
+<<<<<<< HEAD
+=======
+  .rounded-3xl {
+    border-radius: var(--radius-3xl);
+  }
+>>>>>>> 1f488bb (avant fin commit)
   .rounded-full {
     border-radius: calc(infinity * 1px);
   }
@@ -683,8 +767,14 @@
   .bg-blue-600 {
     background-color: var(--color-blue-600);
   }
+  .bg-blue-800 {
+    background-color: var(--color-blue-800);
+  }
   .bg-blue-900 {
     background-color: var(--color-blue-900);
+  }
+  .bg-fuchsia-500 {
+    background-color: var(--color-fuchsia-500);
   }
   .bg-gray-50 {
     background-color: var(--color-gray-50);
@@ -712,6 +802,9 @@
   }
   .bg-red-300 {
     background-color: var(--color-red-300);
+  }
+  .bg-red-400 {
+    background-color: var(--color-red-400);
   }
   .bg-red-500 {
     background-color: var(--color-red-500);
@@ -775,6 +868,9 @@
   }
   .object-cover {
     object-fit: cover;
+  }
+  .p-0 {
+    padding: calc(var(--spacing) * 0);
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
@@ -850,6 +946,13 @@
   .text-4xl {
     font-size: var(--text-4xl);
     line-height: var(--tw-leading, var(--text-4xl--line-height));
+<<<<<<< HEAD
+=======
+  }
+  .text-5xl {
+    font-size: var(--text-5xl);
+    line-height: var(--tw-leading, var(--text-5xl--line-height));
+>>>>>>> 1f488bb (avant fin commit)
   }
   .text-lg {
     font-size: var(--text-lg);
