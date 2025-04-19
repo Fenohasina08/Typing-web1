@@ -9,8 +9,28 @@
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.0/dist/confetti.browser.min.js"></script>
 
+  <!-- Styles pour l'overlay neige et le message -->
+  <style>
+    /* keyframes pour la chute des flocons */
+    @keyframes fall {
+      0%   { transform: translateY(-10px); opacity: 1; }
+      100% { transform: translateY(100%);   opacity: 0; }
+    }
+
+    /* style de chaque flocon */
+    .snow-flake {
+      position: absolute;
+      top: 0;
+      background-color: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation-name: fall;
+      animation-timing-function: linear;
+      /* animation-duration et animation-delay définis en JS */
+    }
+  </style>
 </head>
-<body class="bg-gray-100 flex flex-col items-center justify-center  font-sans">
+<body class="bg-gray-100 flex flex-col items-center justify-center font-sans">
   <header class="w-full h-[5rem] bg-blue-900 flex justify-between items-center px-6 sticky top-0 z-50 ">
   
     <div class="flex-1 text-white font-bold text-xl">
@@ -26,13 +46,8 @@
     <nav role="navigation" aria-label="Navigation principale" class="hidden lg:flex flex-[2] justify-end">
       <ul class="flex gap-8 text-white font-bold text-lg items-center flex flex-row">
         <li>
-          <a href="./index.html" class="flex items-center hover:text-pink-500" aria-current="page">
+          <a href="./home.html" class="flex items-center hover:text-pink-500" aria-current="page">
             <i class='bx bx-home-alt text-xl mr-2' aria-hidden="true"></i>Home
-          </a>
-        </li>
-        <li>
-          <a href="./profils.html" class="flex items-center hover:text-pink-500">
-            <i class='bx bx-user-circle text-xl mr-2' aria-hidden="true"></i>Profils
           </a>
         </li>
       
@@ -50,14 +65,22 @@
           </ul>
         </li>
         
+        
+        <li>
+          <a href="./profils.html" class="flex items-center hover:text-pink-500">
+            <i class='bx bx-user-circle text-xl mr-2' aria-hidden="true"></i>Profils
+          </a>
+        </li>
+         
       </ul>
     </nav>
 
  
     <div id="mobile-menu" class="hidden peer-checked:flex lg:hidden flex-col gap-2 bg-white shadow-lg border border-gray-200 px-4 py-4 font-semibold text-gray-800 absolute top-[5rem] left-0 w-full z-40">
-      <a href="./index.html" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all" tabindex="0">
+      <a href="./home.html" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all" tabindex="0">
         <i class='bx bx-home-alt text-xl mr-2 text-blue-600' aria-hidden="true"></i>Home
       </a>
+     
       <a href="./profils.html" class="flex items-center hover:bg-blue-50 rounded-lg p-3 transition-all" tabindex="0">
         <i class='bx bx-user-circle text-xl mr-2 text-blue-600' aria-hidden="true"></i>Profils
       </a>
@@ -74,39 +97,37 @@
        
     </div>
      
-  </header>
-    <div class="w-full  text-center p-5">
-      <h1 class="text-3xl font-bold text-gray-800 mb-8">Learn how to tap</h1>
-    
-      <div class="bg-white rounded-lg shadow-md p-6 mb-6 w-full">
-        <div class="flex flex-wrap justify-center gap-2 mb-4" id="level-selector">
-         
-        </div>
-      
-        <div class="text-sm text-gray-600 mb-4">
-          <span id="level-description"></span>
-        </div>
-      
-        <div class="flex justify-center gap-2 mb-8" id="progress">
-        
-        </div>
-      
+</header>
+
+  <div class="w-full text-center p-5">
+    <h1 class="text-3xl font-bold text-gray-800 mb-8">Learn how to tap</h1>
+
+    <div class="bg-white rounded-lg shadow-md p-6 mb-6 w-full">
+      <div class="flex flex-wrap justify-center gap-2 mb-4" id="level-selector"></div>
+      <div class="text-sm text-gray-600 mb-4">
+        <span id="level-description"></span>
+      </div>
+      <div class="flex justify-center gap-2 mb-8" id="progress"></div>
+
       <div id="next-btn-container" class="hidden mb-6">
         <button id="next-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded transition">
           Next Step →
         </button>
       </div>
     </div>
-    
+
     <div class="relative bg-white rounded-lg shadow-md p-6 mb-6">
       <div class="keyboard-container" id="keyboard-container">
-        <div class="grid grid-cols-14 gap-1 bg-gray-100 rounded-lg p-4" id="keyboard">
-         
-        </div>
+        <div class="grid grid-cols-14 gap-1 bg-gray-100 rounded-lg p-4" id="keyboard"></div>
       </div>
-       
+
+      <!-- Overlay neige + message Félicitations (caché par défaut) -->
+      <div id="snow-overlay"
+           class="hidden mt-5 absolute inset-0 flex items-center justify-center pointer-events-none">
+        <!-- Injecté dynamiquement en JS -->
+      </div>
     </div>
-    
+
     <div class="grid grid-cols-3 gap-4 bg-white rounded-lg shadow-md p-6 mb-6">
       <div class="text-center">
         <div class="text-2xl font-bold text-gray-800" id="accuracy">100%</div>
@@ -121,14 +142,13 @@
         <div class="text-sm text-gray-600">Progression</div>
       </div>
     </div>
-    
-    <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded transition" id="restart-btn">
+
+    <button id="restart-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded transition">
       Recommencer
     </button>
   </div>
 
   <script src="../js/stages.js"></script>
-  <script src="../js/index.js"></script>
-   
+  <script src="../js/home.js"></script>
 </body>
 </html>

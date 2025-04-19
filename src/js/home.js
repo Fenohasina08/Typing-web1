@@ -39,3 +39,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+ 
+window.addEventListener('load', function() {
+  const header = document.querySelector('.header');
+  header.classList.add('show');
+});
+
+window.addEventListener('load', function() {
+  const leftSection = document.getElementById("bienvenu_left");
+  const rightSection = document.getElementById("bienvenu_right");
+
+ 
+  leftSection.classList.add('show');
+  rightSection.classList.add('show');
+});
+
