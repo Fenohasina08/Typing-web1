@@ -11,7 +11,7 @@ document.getElementById("formulaire").addEventListener("submit", function(event)
   const validPassword = "fozaorana";
 
   if (email === validEmail && password === validPassword) {
-    window.location.href = "../html/home.html";
+    window.location.href = "home.html";
   } else {
     alert("Please enter the email and password shown in the placeholders.");
   }
